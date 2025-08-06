@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teen Phone Usage Predictor</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: #f0f8ff;
+    }
+    .container {
+      margin-top: 50px;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+    }
+    h2 {
+      color: #343a40;
+    }
+    .btn-primary {
+      width: 100%;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #155724;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      padding: 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center mb-4">Teen Phone Usage Predictor</h2>
+    <form method="POST" action="/predictdata">
+      <div class="row">
+        <!-- Numerical Inputs -->
+        <div class="col-md-6 mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" class="form-control" id="age" name="age" step="1" min="1" required />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="daily_usage_hours" class="form-label">Daily Usage Hours</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="daily_usage_hours"
+            name="daily_usage_hours"
+            required
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="sleep_hours" class="form-label">Sleep Hours</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="sleep_hours"
+            name="sleep_hours"
+            required
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="exercise_hours" class="form-label">Exercise Hours</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="exercise_hours"
+            name="exercise_hours"
+            required
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="apps_used_daily" class="form-label">Apps Used Daily</label>
+          <input
+            type="number"
+            class="form-control"
+            id="apps_used_daily"
+            name="apps_used_daily"
+            min="0"
+            required
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="time_on_social_media" class="form-label">Time on Social Media (hrs)</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="time_on_social_media"
+            name="time_on_social_media"
+            required
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="time_on_gaming" class="form-label">Time on Gaming (hrs)</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="time_on_gaming"
+            name="time_on_gaming"
+            required
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="weekend_usage_hours" class="form-label">Weekend Usage Hours</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="weekend_usage_hours"
+            name="weekend_usage_hours"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="academic_performance" class="form-label">Academic Performance</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="academic_performance"
+            name="academic_performance"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="self_esteem" class="form-label">Self Esteem</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="self_esteem"
+            name="self_esteem"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="family_communication" class="form-label">Family Communication</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="family_communication"
+            name="family_communication"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="social_interactions" class="form-label">Social Interactions</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="social_interactions"
+            name="social_interactions"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="phone_checks_per_day" class="form-label">Phone Checks Per Day</label>
+          <input
+            type="number"
+            class="form-control"
+            id="phone_checks_per_day"
+            name="phone_checks_per_day"
+            min="0"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="anxiety_level" class="form-label">Anxiety Level</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="anxiety_level"
+            name="anxiety_level"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="screen_time_before_bed" class="form-label">Screen Time Before Bed</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="screen_time_before_bed"
+            name="screen_time_before_bed"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="depression_level" class="form-label">Depression Level</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="depression_level"
+            name="depression_level"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="parental_control" class="form-label">Parental Control</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="parental_control"
+            name="parental_control"
+            required
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="time_on_education" class="form-label">Time on Education</label>
+          <input
+            type="number"
+            step="0.1"
+            class="form-control"
+            id="time_on_education"
+            name="time_on_education"
+            required
+          />
+        </div>
+
+        <!-- Categorical Inputs -->
+        <div class="col-md-6 mb-3">
+          <label for="gender" class="form-label">Gender</label>
+          <select class="form-select" id="gender" name="gender" required>
+            <option value="" selected disabled>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="location" class="form-label">Location</label>
+          <select class="form-select" id="location" name="location" required>
+            <option value="" selected disabled>Select Location</option>
+            <option value="Urban">Urban</option>
+            <option value="Suburban">Suburban</option>
+            <option value="Rural">Rural</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="phone_usage_purpose" class="form-label">Phone Usage Purpose</label>
+          <select class="form-select" id="phone_usage_purpose" name="phone_usage_purpose" required>
+            <option value="" selected disabled>Select Purpose</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Education">Education</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Communication">Communication</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="school_grade" class="form-label">School Grade</label>
+          <select class="form-select" id="school_grade" name="school_grade" required>
+            <option value="" selected disabled>Select Grade</option>
+            <option value="Freshman">Freshman</option>
+            <option value="Sophomore">Sophomore</option>
+            <option value="Junior">Junior</option>
+            <option value="Senior">Senior</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3">Predict</button>
+    </form>
+
+    {% if results %}
+    <div class="result text-center mt-4">
+      <strong>Prediction:</strong> {{ results }}
+    </div>
+    {% endif %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
