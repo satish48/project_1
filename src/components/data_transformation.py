@@ -20,7 +20,7 @@ pylog.basicConfig(level=pylog.INFO, format="%(asctime)s - %(levelname)s - %(mess
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path: str = os.path.join("artifacts", "preprocessor.pkl")
+    preprocessor_obj_file_path: str = os.path.join("artifacts", "preprocessor.pkl") #this is saving the file
 
 
 class DataTransformation:
