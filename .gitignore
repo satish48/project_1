@@ -7,6 +7,16 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+.conda/
+# Ignore macOS system files
+.DS_Store
+
+# Ignore conda environment folders
+.conda/
+
+# Ignore data folders if needed
+data/
+
 .artifacts
 .Python
 build/
