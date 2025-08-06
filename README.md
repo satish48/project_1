@@ -98,16 +98,16 @@ Usage:
 
 Get the predicted phone usage output instantly.
 Model Performance
-Model	R² Score
-CatBoostRegressor	0.97
-RandomForestRegressor	0.86
-XGBRegressor	0.85
-AdaBoostRegressor	0.69
-Linear Regression	0.64
-Decision Tree	0.56
+Model	                    R² Score
+CatBoostRegressor	         0.97
+RandomForestRegressor	     0.86
+XGBRegressor	             0.85
+AdaBoostRegressor	         0.69
+Linear Regression	         0.64
+Decision Tree	             0.56
 
 
 Contact
 Created by Satish Mudrakola
-📧 Email: your_email@example.com
-🔗 LinkedIn: linkedin.com/in/satishmudrakola
+📧 Email: satishmudrakola91@gmail.com
+🔗 LinkedIn: https://www.linkedin.com/in/satish-mudrakola-343b81361/
