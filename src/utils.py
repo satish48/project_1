@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import RandomizedSearchCV
-
 import os
 import dill
 
@@ -72,3 +71,15 @@ def load_object(file_path: str):
     except Exception as e:
         logging.exception("Failed to load object")
         raise CustomException(e, sys)
+    
+def get_addiction_label(score):
+    if score < 3:
+        return "Low"
+    elif score < 6:
+        return "Moderate"
+    elif score < 8:
+        return "High"
+    else:
+        return "Severe"
+
+
